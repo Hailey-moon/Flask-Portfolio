@@ -36,8 +36,5 @@ class TestTimelinePost(unittest.TestCase):
         # TODO: Get timeline posts and assert that they are correct
         result=TimelinePost.select()
         assert (result[0].name == 'John Doe' and result[0].email=='john@example.com' and result[0].content=="Hello world, I'm John!")
-        print("!!!!!!!!!")
         assert (result[1].name == 'Jane Doe' and result[1].email=='jane@example.com' and result[1].content=="Hello world, I'm Jane!")
 
-        #print(result[0].content)
-        #print(result[1].name)
