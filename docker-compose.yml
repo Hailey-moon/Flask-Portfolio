@@ -1,0 +1,47 @@
+# Specify the docker compose file version
+version: "3"
+# Define a list of services
+services:
+  # Define the myportfolio service
+  myportfolio:
+    container_name: myportfolio
+    # Define myportfolio service will be built from our Dockerfile at 
+    # current directory (specified with dot)
+    build: .
+    # Always restart the container on reboot or on error
+    restart: always
+    # Specify the file containing environment variables
+    env_file:
+      - .env
+    # Add FLASK_ENV=development environment variable for our local 
+    # development environment
+    environment:
+      - FLASK_ENV=development
+    # Publish port 5000 to the host machine
+    ports:
+      - "5000:5000"
+    # Map the files on your machine into the container at /myportfolio.
+    # This is used for development only.
+    volumes:
+      - .:/myportfolio
+    # Specify that myportfolio service should start after mysql service is up
+    depends_on:
+      - mysql
+  # Define mysql service
+  
+  mysql:
+    container_name: mysql
+    # nstead of the mysql docker image, we're going to opt for mariadb which is 
+    # a fork and drop-in replacement of mysql with lower resource usage. Read 
+    # more at https://hub.docker.com/_/mariadb
+    image: mariadb
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - mydatabase:/var/lib/mysql
+
+# Define a named volume called mydatabase which will be persisted even if containers 
+# are recreated in the future
+volumes:
+  mydatabase:
