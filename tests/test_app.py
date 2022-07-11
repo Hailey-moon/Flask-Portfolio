@@ -14,7 +14,7 @@ class AppTestCase(unittest.TestCase):
         html = response.get_data(as_text=True)
         assert "<title>Personal Portfolio</title>" in html
         # TODO Add more tests relating to the home page
-        assert '<h1 class="about--words">Hello, Nice to Meet You! <br/>' in html
+        assert '<h1 class="about--words">Hi There, Nice to Meet You! <br/>' in html
         assert '<a href="mailto:hmoon@bu.edu?subject=Coming From Your Portfolio">' in html
 
     def test_timeline(self):
