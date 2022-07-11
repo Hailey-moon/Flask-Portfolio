@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Run this script to test the POST, DELETE, and GET requests to your timeline
+
 echo "Creating post with name TEST, email TEST, and content TEST"
 curl -X POST http://localhost:5000/api/timeline_post -d 'name=TEST&email=TEST&content=TEST'
 
