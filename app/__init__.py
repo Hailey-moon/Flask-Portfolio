@@ -126,7 +126,7 @@ yourName = "Hailey Moon"
 
 yourPic = "../static/img/Headshot.png"
 
-yourEd = Education("Boston University", "Expected May 2024", "Computer Science/Visual Arts", "Rising Junior")
+yourEd = Education("Boston University", "Expected May 2024", "Computer Science/Visual Arts", "Junior")
 
 yourWork = []
 yourWork.append(Experience(
