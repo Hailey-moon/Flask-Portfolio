@@ -34,9 +34,6 @@ jobs:
       - name: Print container status
         run: ssh my-vm 'cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
 
-      - name: Error simulation
-        run: exit 1
-
       - name: Send success message to Discord
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
 
